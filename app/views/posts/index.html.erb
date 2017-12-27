@@ -1,5 +1,6 @@
+<div id="new-post"> <%= link_to "Add Post", new_post_path, remote: true %> </div>
+
 <div id="posts">
- <div id="new-post"> <%= link_to "Add Post", new_post_path, remote: true %> </div>
   <% @posts.each do |p| %>
     <%= cl_image_tag p.photo, height: 350, width: 400, crop: :fill %>
     <%= p.message %>
