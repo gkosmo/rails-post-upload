@@ -1,0 +1,8 @@
+const newPostForm = document.getElementById('new-post');
+// <% if @post.errors.any? %>
+  newPostForm.innerHTML = "<%= j render 'posts/form' %>";
+// <% else %>
+  // const posts = document.getElementById('posts');
+  // posts.insertAdjacentHTML("beforeend", "<%= j render 'posts/index', post: @post %>");
+  // newPostForm.innerHTML = "<%= j render 'posts/form' %>";
+// <% end %>
