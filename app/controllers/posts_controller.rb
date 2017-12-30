@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @post = Post.new
   end
 
   def new
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @posts = Post.all
     @post.user = current_user
     if @post.save
       respond_to do |format|
@@ -19,7 +21,7 @@ class PostsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render 'posts/index' }
+        format.html { render @posts }
         format.js  # <-- idem
       end
     end

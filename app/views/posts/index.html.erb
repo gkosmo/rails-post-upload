@@ -1,4 +1,8 @@
-<div id="new-post"> <%= link_to "Add Post", new_post_path, remote: true %> </div>
+<div id="new_link">
+  <div id="new_post">
+    <%= link_to "Add Post", new_post_path, remote: true %>
+  </div>
+</div>
 
 <div id="posts">
   <% @posts.each do |p| %>
