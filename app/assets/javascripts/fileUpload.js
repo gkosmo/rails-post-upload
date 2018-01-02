@@ -5,7 +5,7 @@ $(function() {
     $.cloudinary.config({ cloud_name: 'dy6uvdlxh', api_key: '534847379387188'});
 
     // Upload button
-    var uploadButton = $('#submit');
+    var uploadButton = $('#upload-button');
 
     // Upload button event
     uploadButton.on('click', function(e){
