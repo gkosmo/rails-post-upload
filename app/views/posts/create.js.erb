@@ -1,2 +1,4 @@
-const posts = document.getElementById('posts');
+document.getElementById('new-post-form').innerHTML = "<%= j render 'posts/addpost' %>";
+
+const posts = document.getElementById('post-index');
   posts.insertAdjacentHTML("beforeend", "<%= j render 'posts/post' %>");

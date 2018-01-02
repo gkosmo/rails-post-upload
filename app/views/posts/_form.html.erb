@@ -1,18 +1,26 @@
-<%= simple_form_for(@post, remote: true) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :photo %>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= simple_form_for(@post, remote: true) do |f| %>
+      <div class="modal-body">
+      <div class="form-inputs">
+        <%= f.input :photo %>
+      </div>
+        <%= f.input :photo_cache, as: :hidden %>
+      <div class="form-inputs">
+        <%= f.input :name %>
+      </div>
+      <div class="form-inputs">
+        <%= f.input :age %>
+      </div>
+      <div class="form-inputs">
+        <%= f.input :message %>
+      </div>
+      <div class="modal-footer">
+      <div class="form-inputs">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+      </div>
+    <% end %>
   </div>
-    <%= f.input :photo_cache, as: :hidden %>
-  <div class="form-inputs">
-    <%= f.input :name %>
   </div>
-  <div class="form-inputs">
-    <%= f.input :age %>
-  </div>
-  <div class="form-inputs">
-    <%= f.input :message %>
-  </div>
-  <div class="form-inputs">
-    <%= f.submit class: 'btn btn-primary' %>
-  </div>
-<% end %>
+</div>

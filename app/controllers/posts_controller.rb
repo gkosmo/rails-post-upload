@@ -12,8 +12,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @posts = Post.all
     @post.user = current_user
+    @posts = Post.all
     if @post.save
       respond_to do |format|
         format.html { redirect_to posts_path }
@@ -34,13 +34,28 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params)
-    redirect_to post_path(@point)
+    # @post.update(post_params)
+    # redirect_to post_path(@point)
+    @posts = Post.all
+    if @post.update(post_params)
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render @posts }
+        format.js  # <-- idem
+      end
+    end
   end
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.js  # <-- will render `app/views/reviews/destroy.js.erb`
+    end
   end
 
   private

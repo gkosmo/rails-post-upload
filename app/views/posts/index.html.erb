@@ -1,12 +1,15 @@
-<div id="new_link">
-  <div id="new_post">
-    <%= link_to "Add Post", new_post_path, remote: true %>
+<div class="container">
+
+  <div id="new-post-form">
+    <%= render "addpost" %>
   </div>
+
+  <div class="new-post"></div>
+
+  <div id="post-index">
+    <%= render "index" %>
+  </div>
+
 </div>
 
-<div id="posts">
-  <% @posts.each do |p| %>
-    <%= cl_image_tag p.photo, height: 350, width: 400, crop: :fill %>
-    <%= p.message %>
-  <% end %>
-</div>
+<div id="post-modal" class="modal fade"></div>
