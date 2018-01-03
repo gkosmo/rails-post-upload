@@ -10,7 +10,7 @@ $(function() {
     // Upload button event
     uploadButton.on('click', function(e){
         // Initiate upload
-        cloudinary.openUploadWidget({ cloud_name: 'dy6uvdlxh', upload_preset: 'dwoj6edp', tags: ['cgal']},
+        cloudinary.openUploadWidget({ cloud_name: 'dy6uvdlxh', upload_preset: 'mbjs8e2o', tags: ['cgal']},
         function(error, result) {
             if(error) console.log(error);
             // If NO error, log image data to console
@@ -26,3 +26,12 @@ function processImage(id) {
     };
     return '<img src="'+ $.cloudinary.url(id, options) +'" style="width: 100%; height: auto"/>';
 }
+
+$(document).on('cloudinarywidgetsuccess', function(e, data) {
+    // Get the public_id of the image you would like to upload from the response
+    public_id = data[0].public_id;
+    // Create the necessary URL
+    var img = $.cloudinary.image(public_id, { width: 200, height: 200, crop: "crop", gravity: "custom" });
+    // Add it to the element
+    $("#post-<%= @post.id %>").html(img[0].outerHTML);
+});
