@@ -14,14 +14,13 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     @posts = Post.all
-    if @post.save
+    if @post.save!
       @post.reload
       respond_to do |format|
         format.html { redirect_to posts_path }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
     else
-      @post.reload
       respond_to do |format|
         format.html { render @posts }
         format.js  # <-- idem
